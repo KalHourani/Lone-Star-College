@@ -1,6 +1,4 @@
-#Project 1
-
-Lottery Winners
+#Lottery Winners
 
 A lottery ticket buyer purchases 10 tickets a week, always playing the same 10 5-digit “lucky” combinations. Write a program  that initializes  an array  or a vector with these numbers and then lets the player enter this week’s winning 5-digit number. The program  should perform a linear search through the list of the player’s numbers and report whether  or not one of the tickets is a winner this week. Here are the numbers:
 
