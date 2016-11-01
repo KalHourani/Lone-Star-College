@@ -12,6 +12,9 @@ A lottery ticket buyer purchases 10 tickets a week, always playing the same 10 5
 Sample run:
 
 ↵ →→→→Enter·this·week's·5-digit·winning·lottery·number:5
+
 ↵ →→→→You·did·not·win·this·week.
+
 ↵ →→→→
+
 ↵ →→→
