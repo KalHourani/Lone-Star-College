@@ -1,3 +1,3 @@
-# Programming-Fundamentals-Java-
+# Programming-Fundamentals-I-Java-
 
-Set of programs and projects for my Programming Fundamentals class, written in Java. 
+Set of programs and projects for my Programming Fundamentals I class, written in Java. 
