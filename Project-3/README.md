@@ -1,6 +1,4 @@
-#Problem Description
-
-Character  Analysis
+#Character  Analysis
 
 Write a program  that reads the contents of a file named  text.txt and determines the following:
 
