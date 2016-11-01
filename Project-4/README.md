@@ -26,8 +26,11 @@ The main menu is displayed at the start of the program and after the handling of
 where X is the customer number: 0 for the first customer and increasing by 1 for each subsequent customer that is entered.
 
 <b>If 2 is entered for the main menu,</b> the program prompts for the customer number:
+
      Customer number: 
+     
 Upon entering a valid customer number the program displays all the data for the particular customer that has been saved:
+
      Customer name : ...
      Customer address: ...
      City: ...
