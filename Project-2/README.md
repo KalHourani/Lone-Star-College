@@ -1,6 +1,4 @@
-#Problem Description
-
-Reverse Array
+#Reverse Array
 
 Write a function that accepts an int  array  and the array ’s size as arguments . The function should create a copy of the array , except that the element  values  should be reversed in the copy. The function should return a pointer to the newarray . Demonstrate the function by using it in a main program  that reads an integer  N  (that is not more than 50) from standard input and then reads N  integers  from a file named  data  into an array . The program  then passes thearray  to the your reverse array  function, and prints the values  of the new reversed array  on standard output , one value  per line. You may assume  that the file data  has at least N  values .
 
