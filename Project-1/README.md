@@ -6,7 +6,7 @@ A lottery ticket buyer purchases 10 tickets a week, always playing the same 10 5
 
 62483 77777 79422 85647 93121
 
-<font color="blue">Sample run:
+Sample run:
 
 ↵ →→→→Enter·this·week's·5-digit·winning·lottery·number:5
 
@@ -14,4 +14,4 @@ A lottery ticket buyer purchases 10 tickets a week, always playing the same 10 5
 
 ↵ →→→→
 
-↵ →→→</font>
+↵ →→→
