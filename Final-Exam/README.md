@@ -1,6 +1,5 @@
-Final Exam - Programming portion
-COSC 1337 – Programming Fundamentals II
-======
+#Final Exam - Programming portion
+#COSC 1337 – Programming Fundamentals II
 <b>You have been hired as a software engineer to create a
 software package for a retail store. Following is the
 requirement for this software package.</b>
