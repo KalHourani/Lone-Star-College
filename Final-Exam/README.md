@@ -16,7 +16,7 @@ variables:
 * city
 * state
 * zip
-*phone
+* phone
 
 Write the appropriate accessor and mutator functions for these
 member variables.
