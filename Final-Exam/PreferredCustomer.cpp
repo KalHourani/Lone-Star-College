@@ -1,7 +1,10 @@
+//Definitions for PreferredCustomer class.
+
 #include "PreferredCustomer.h"
 #include <cstdlib>
 
 using namespace std;
+
 //prototype
 void clear_input();
 

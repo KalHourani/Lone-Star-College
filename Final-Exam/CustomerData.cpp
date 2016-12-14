@@ -1,3 +1,5 @@
+//Definitions for CustomerData class.
+
 #include "CustomerData.h"
 
 //prototype

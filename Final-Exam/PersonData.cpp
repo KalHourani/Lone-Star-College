@@ -1,10 +1,10 @@
-#pragma once
+//Definitions for PersonData class.
 
 #include "PersonData.h"
 
 using namespace std;
 
-//prototype
+//Function Prototype
 void clear_input();
 
 PersonData::PersonData()

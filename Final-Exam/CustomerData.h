@@ -1,3 +1,5 @@
+//Header file for CustomerData class, derived from PersonData class.
+
 #ifndef CUSTOMER_DATA_H
 #define CUSTOMER_DATA_H
 #include "PersonData.h"

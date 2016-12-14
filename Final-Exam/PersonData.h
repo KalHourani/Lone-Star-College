@@ -1,4 +1,8 @@
-#pragma once
+//PersonData base class header
+
+#ifndef PERSONDATA_H
+#define PERSONDATA_H
+
 #include <string>
 #include <iostream>
 
@@ -34,3 +38,5 @@ class PersonData
 		void input();
 		void output();
 };
+
+#endif

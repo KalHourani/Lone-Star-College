@@ -1,3 +1,5 @@
+//PreferredCustomer header file.
+
 #ifndef PREFERRED_CUSTOMER_H
 #define PREFERRED_CUSTOMER_H
 #include "CustomerData.h"
@@ -5,7 +7,6 @@
 
 class PreferredCustomer : public CustomerData
 {
-private:
 	double purchasesAmount;
 	double discountLevel;
 	void setDiscountLevel();
