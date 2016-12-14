@@ -31,4 +31,6 @@ class PersonData
 		string getState();
 		string getZip();
 		string getPhone();
+		void input();
+		void output();
 };

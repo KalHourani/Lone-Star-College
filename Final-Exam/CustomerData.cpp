@@ -1,7 +1,7 @@
 #include "CustomerData.h"
-#include <string>
-using namespace std;
 
+//prototype
+void clear_input();
 
 CustomerData::CustomerData() : PersonData()
 {
@@ -28,4 +28,39 @@ int CustomerData::getCustomerNumber()
 bool CustomerData::getMailingList()
 {
 	return mailingList;
+}
+
+void CustomerData::input()
+{
+	PersonData::input();
+	cout << "Customer Number: ";
+	cin >> customerNumber;
+	cout << "Mailing List: " << endl;
+	cout << "Enter 0 if customer is not on mailing list." << endl;
+	cout << "Enter 1 if customer is on mailing list." << endl;
+	int input;
+	cin >> input;
+	if (input == 0)
+	{
+		mailingList = false;
+	}
+	else
+	{
+		mailingList = true;
+	}
+}
+
+void CustomerData::output()
+{
+	PersonData::output();
+	cout << "Customer Number: " << customerNumber << endl;
+	cout << "Mailing List: ";
+	if (mailingList)
+	{
+		cout << "Yes" << endl;
+	}
+	else
+	{
+		cout << "No" << endl;
+	}
 }

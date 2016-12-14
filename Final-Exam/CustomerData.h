@@ -1,8 +1,6 @@
 #ifndef CUSTOMER_DATA_H
 #define CUSTOMER_DATA_H
 #include "PersonData.h"
-#include <string>
-using namespace std;
 
 class CustomerData : public PersonData
 {
@@ -16,6 +14,8 @@ class CustomerData : public PersonData
 		void setMailingList(bool);
 		int getCustomerNumber();
 		bool getMailingList();
+		void input();
+		void output();
 };
 
 #endif

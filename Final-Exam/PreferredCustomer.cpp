@@ -1,8 +1,9 @@
 #include "PreferredCustomer.h"
-#include <string>
-#include <cstdlib> 
-using namespace std;
+#include <cstdlib>
 
+using namespace std;
+//prototype
+void clear_input();
 
 PreferredCustomer::PreferredCustomer() : CustomerData()
 {
@@ -57,4 +58,24 @@ double PreferredCustomer::getPurchasesAmount()
 double PreferredCustomer::getDiscountLevel()
 {
 	return discountLevel;
+}
+
+void PreferredCustomer::input()
+{
+	CustomerData::input();
+	cout << "Purchases Amount: ";
+	cin >> purchasesAmount;
+	if (purchasesAmount < 0)
+	{
+		cout << "Invalid Purchase Amount!\n";
+		exit(EXIT_FAILURE);
+	}
+	setDiscountLevel();
+}
+
+void PreferredCustomer::output()
+{
+	CustomerData::output();
+	cout << "Purchases Amount: " << purchasesAmount << endl;
+	cout << "Discount Level: " << int(100 * discountLevel) << "%" << endl;
 }

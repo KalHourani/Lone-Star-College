@@ -1,10 +1,9 @@
 #ifndef PREFERRED_CUSTOMER_H
 #define PREFERRED_CUSTOMER_H
 #include "CustomerData.h"
-#include <string>
-using namespace std;
+#include <cstdlib>
 
-class PreferredCustomer : CustomerData
+class PreferredCustomer : public CustomerData
 {
 private:
 	double purchasesAmount;
@@ -16,6 +15,8 @@ public:
 	void setPurchasesAmount(double);
 	double getPurchasesAmount();
 	double getDiscountLevel();
+	void input();
+	void output();
 };
 
 #endif

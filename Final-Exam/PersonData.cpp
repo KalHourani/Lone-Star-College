@@ -1,9 +1,11 @@
 #pragma once
-#include <string>
-#include <iostream>
+
 #include "PersonData.h"
 
 using namespace std;
+
+//prototype
+void clear_input();
 
 PersonData::PersonData()
 	{
@@ -81,4 +83,46 @@ string PersonData::getZip()
 string PersonData::getPhone()
 {
 	return phone;
+}
+
+void PersonData::input()
+{
+	clear_input();
+	cout << "Last Name: ";
+	getline(cin, lastName);
+
+	cout << "First Name: ";
+	getline(cin, firstName);
+
+	cout << "Address: ";
+	getline(cin, address);
+
+	cout << "City: ";
+	getline(cin, city);
+
+	cout << "State: ";
+	getline(cin, state);
+
+	cout << "Customer ZIP: ";
+	getline(cin, zip);
+
+	cout << "Customer Phone: ";
+	getline(cin, phone);
+}
+
+void PersonData::output()
+{
+	cout << "Last Name: " << lastName << endl;
+
+	cout << "First Name: " << firstName << endl;
+
+	cout << "Address: " << address << endl;
+
+	cout << "City: " << city << endl;
+
+	cout << "State: " << state << endl	;
+
+	cout << "Customer ZIP: " << zip << endl;
+
+	cout << "Customer Phone: " << phone << endl;
 }
