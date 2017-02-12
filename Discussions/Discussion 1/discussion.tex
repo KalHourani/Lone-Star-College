@@ -1,0 +1,59 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{minted}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Array vs. Linked List}
+\author{Khalid Hourani}
+
+\begin{document}
+An array is a collection of elements identified by their index. An array is stored in memory so that the index of each element of the array can be calculated by a simple mathematical formula. For example, an array of 5 32-bit integers beginning at memory address 5000 would have its $i^{\text{th}}$ element's stored at memory region \[5000 + 4i\] An example of such an array would be [1,2,3,4,5]. 
+
+On the other hand, a linked list is a collection of data structures containing an \textit{object} and a \textit{pointer}. Each element in a linked list is called a \textit{node}, and each pointer refers to another node in the linked list. The first node in a linked list is the \textit{head}, and the last node is the \textit{tail}. The tail contains a null-pointer in order to show that it is the last node of a linked list. 
+
+A simple example of a linked list is one which represents a non-negative integer. Let the head represent the ones-digit of the number and the tail represent the leading digit.
+
+\begin{minted}{C++}
+typedef struct NumberNode
+{
+  int digit;
+  struct NumberNode* next;
+} NumberNode;
+\end{minted}
+
+The number ``12345", then, could be represented by the linked list:
+
+\begin{minted}{C++}
+Five.digit = 5;
+Five.next = &Four;
+
+Four.digit = 4;
+Four.next = &Three;
+
+Three.digit = 3;
+Three.next = &Two;
+
+Two.digit = 2;
+Two.next = &One;
+
+One.digit = 1;
+One.next = NULL;
+\end{minted}
+
+While an array needs its length declared and its elements must be stored contiguously in memory, a linked list can be arbitrarily long and its elements can be stored in virtually any memory region. Moreover, removing an element from or adding an element to an array is much harder than from a linked list, as, with an array, one is required to reallocate memory and adjust the array size. With a linked list, an element can be added or removed by changing pointers in the list. 
+
+However, a linked list necessarily requires sequentially traversing through its elements. An array, on the other hand, allows for random access. In the array example above, if one wants to find the $3^{\text{rd}}$ element of the array, one simply needs to find the 32-bit integer stored at memory region \[5000 + 4 * 3 = 5012\] For the example above, if one wants to find the fourth digit from the right, one has to traverse through each node: \[\text{Five} \Rightarrow \text{Four} \Rightarrow \text{Three} \Rightarrow \text{Two}\] Finally, a linked list can be difficult to traverse backwards. While this can be solved with a doubly linked list (essentially including a previous and next pointer, instead of only a next pointer), this requires the use of additional memory.
+\end{document}
