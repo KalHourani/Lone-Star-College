@@ -1,8 +1,8 @@
 #Project 1 (200 Points)
 
-Type the following with answers in a Word document (with your name, class, date, instructor name), save it and submit it here.
+##Type the following with answers in a Word document (with your name, class, date, instructor name), save it and submit it here.
 
-#Part I: (100 Points)
+##Part I: (100 Points)
 
 Describe in your own words and in detail with example what are the following 7 functions are in Analysis Tools:
 
@@ -18,7 +18,7 @@ The Cubic Function and Other Polynomials
 
 The Exponential Function
 
-#Part II: (75 Points)
+##Part II: (75 Points)
 
 Describe in your own words and in detail with example what are the following two:
 
@@ -26,7 +26,7 @@ Asymptotic Notation
 
 Asymptotic Analysis
 
-#Part III: (25 Points)
+##Part III: (25 Points)
 
 What would be the output of the following sequence of queue operations:
 
