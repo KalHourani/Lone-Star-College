@@ -22,6 +22,6 @@ Describe in your own words and in detail with example what are the following two
 
 What would be the output of the following sequence of queue operations:
 
-* enqueue(5), enqueue(3),dequeue(),enqueue(2),enqueue(8),dequeue(),
-* dequeue(),enqueue(9),enqueue(1),dequeue(),enqueue(7),enqueue(6),
-* dequeue(),dequeue(),enqueue(4),dequeue(),dequeue(),
+* enqueue(5), enqueue(3), dequeue(), enqueue(2), enqueue(8), dequeue(),
+* dequeue(), enqueue(9), enqueue(1), dequeue(), enqueue(7), enqueue(6),
+* dequeue(), dequeue(), enqueue(4), dequeue(), dequeue(),
