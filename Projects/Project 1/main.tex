@@ -82,7 +82,11 @@ We say a function $f(n)$ is $O(g(n))$, written \begin{align*}f(n) &\text{ is } O
 
 For example, the function $f(n)=n^2+4n+9$ is $O(n^3)$, since \[n^2+4n+9\leq 1n^3\text{ for } n\geq4\]
 
+<<<<<<< HEAD
 Similarly, we say that $f(n)$ is $\Omega(g(n))$, written \begin{align*}f(n) &\text{ is } \Omega(g(n))\text{ or }\\f(n)&=\Omega(g(n))\text{ or }\\f(n)&\in \Omega(g(n))\end{align*} if and only if there exists a real constant $c>0$ and an integer constant $m\geq1$ such that \[f(n)\geq cg(n) \text{ for all }n\geq m\] Equivalently, $f(n)$ is $\Omega(g(n))$ if and only if $g(n)$ is $O(f(n))$. 
+=======
+Similarly, we say that $f(n)$ is $\Omega(g(n))$, written \begin{align*}f(n) &\text{ is } \Omega(g(n))\text{ or }\\f(n)&=\Omega(g(n))\text{ or }\\f(n)&\in \Omega(g(n))\end{align*} if and only if there exists a real constant $c>0$ and an integer constant $m\geq1$ such that \[f(n)\geq cg(n) \text{ for all }n\geq m\] Equivalently, $f(n)=\Omega(g(n))$ if and only if $g(n)=O(f(n))$.
+>>>>>>> fa263d4a9801c2393b765c97e08af9fd83c7f968
 
 For example, the function $f(n)=n^2+4n+9$ is $\Omega(n)$, since \[n^2+4n+9\geq 1n\text{ for }n\geq1\]
 
