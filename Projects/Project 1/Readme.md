@@ -5,8 +5,8 @@
 Describe in your own words and in detail with an example what the following 7 functions are in Analysis Tools:
 
 * The Constant Function
-* The Linear Function
 * The Logarithm Function
+* The Linear Function
 * The N-Log-N Function
 * The Quadratic Function
 * The Cubic Function and Other Polynomials
