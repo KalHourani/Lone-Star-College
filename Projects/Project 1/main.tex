@@ -16,18 +16,31 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
-\title{Project 1}
-\author{Khalid Hourani}
 
 \begin{document}
-\maketitle
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Lone Star College \par}
+	\vspace{1cm}
+	{\scshape\Large Project 1\par}
+	\vspace{1.5cm}
+	{\huge\bfseries COSC 2336 \par}
+	{\huge\bfseries Programming Fundamentals III\par}
+	\vspace{0.5cm}
+	{\large\bfseries Nina Javaher-Tarash\par}
+	\vspace{2cm}
+	{\Large\itshape Khalid Hourani\par}
+	\vspace{0.5cm}
+	{\large March 6, 2017\par}
+	\vfill
+
+% Bottom of the page
+\end{titlepage}
 \section{Analysis Tools}
-\begin{itemize}
-  \item The Constant Function
+\subsection{The Constant Function}
+A constant function is any function of the form \[f(n) = c\] where $c$ is some constant. Since any constant function $f(n) = c$ can be written as \[f(n) = c \cdot g(n)\] where $g(n) = 1$ is another constant function, we will typically focus on the constant function $f(n)=1$. The constant function frequently describes the number of steps required for basic operations, like assigning a value to a variable, adding two integers, or accessing an array index. 
 
-  A constant function is any function of the form \[f(n) = c\] where $c$ is some constant. Since any constant function $f(n) = c$ can be written as \[f(n) = c \cdot g(n)\] where $g(n) = 1$ is another constant function, we will typically focus on the constant function $f(n)=1$. The constant function frequently describes the number of steps required for basic operations, like assigning a value to a variable, adding two integers, or accessing an array index. 
-
-  \item The Logarithm Function
+\subsection{The Logarithm Function}
 
   A logarithm function is any function of the form \[f(n)=\log_b(n)\] Defined by \[\log_b(x)=y\text{ if and only if } b^y=x\] Typically, while mathematicians write $\log$ to mean $\ln=\log_e$ and engineers and scientists write $\log$ to mean $\log_{10}$, computer scientists write $\log$ to mean $\log_2$. However, any base-b logarithm can be converted to base-a by the formula \[\log_b(n)=\frac{\log_a(n)}{\log_a(b)}\] so the choice of base has little impact in practice. The following four properties of logarithms are notable:
   \begin{enumerate}
@@ -38,22 +51,24 @@
   \end{enumerate}
 
   The logarithm function frequently shows up in algorithm analysis in examples like the binary search, which, on a search of $n$ elements, takes at most $\log(n)$ operations.
-  \item The Linear Function
+
+ \subsection{The Linear Function}
 
   A linear function is any function of the form \[f(n)=cn\] This function frequently occurs when we have to perform an operation on each element in a set. For example, a linear search on $n$ elements takes at most $n$ comparison operations.
 
-  \item The N-Log-N Function
+\subsection{The N-Log-N Function}
 
   The N-Log-N function is a function of the form \[f(n)=n\log(n)\] This function grows faster than the logarithm function and the linear function, but slower than the quadratic function. This function tends to show up when optimizing a function that runs in quadratic time.
-  \item The Quadratic Function
+ 
+ \subsection{The Quadratic Function}
 
   A quadratic function is any polynomial \[f(n) = an^2+bn+c\] However, we typically focus on the quadratic \[f(n) = n^2\] since \[an^2+bn+c\leq\left(|a|+|b|+|c|\right)n^2\] This function tends to show up when nesting loops. For example, multiplying two numbers using the elementary algorithm requires quadratic time, since you must iterate through each digit of the first number for each iteration through each digit of the second.
 
-  \item The Cubic Function and Other Polynomials
+ \subsection{The Cubic Function and Other Polynomials}
 
   The cubic function is any polynomial \[f(n)=an^3+bn^2+cn+d\] Though, as in the above example, we typically consider \[f(n) = n^3\] A polynomial function of degree $m$ is a function of the form \[f(n)=a_0n^m+a_1n^{m-1}+\cdots+a_{n-1}n+a_m\] Similarly, we typically consider the polynomial \[f(n)=n^m\] These functions show up in cases where there are multiple nested loops. In the case of four nested loops, for example, the function would have a running time of approximately $n^4$.
 
-  \item The Exponential Function
+ \subsection{The Exponential Function}
 
   An exponential function is any function of the form \[f(n)=b^n\] The exponential function can be defined for non-negative integer values recursively as \[b^n=\begin{cases}1 & n = 0\\b\cdot b^{n-1} & n>0\end{cases}\] This definition can be extended to all integers by setting \[b^{-n}=\frac{1}{b^n}\] and to all rational numbers by \[b^{\frac{m}{n}}=\sqrt[n]{b^m}\] Finally, we can extend the definition to all real numbers by defining \[b^r=\lim_{n\to\infty}b^{r_n}\] where $r_n$ is any sequence of rationals such that $r_n\to r$. An equivalent definition is found by setting \[\ln(x)=\int_1^x\frac{1}{t}dt\] and defining $e^x$ as the inverse function of $\ln{x}$. We then set \[b^x=e^{x\ln{b}}\]
 
@@ -65,11 +80,10 @@
   \end{enumerate}
 
 The exponential function frequently shows up when something is repeatedly doubled.
-\end{itemize}
 
 \section{Asymptotes}
-\begin{itemize}
-\item Asymptotic Notation
+
+\subsection{Asymptotic Notation}
 
 Asymptotic Notation is the use of the following terminology to describe the behavior of an algorithm:
 \begin{enumerate}
@@ -92,7 +106,7 @@ For example, the function $f(n)=n^2+4n+9$ is $\Theta(n^2)$, since \[n^2 \leq n^2
 
 In practice, Big $O$ notation is more frequently used than Big $\Omega$ and Big $\Theta$, since we are often more concerned with a ``worst case'' estimation of the performance and memory space of an algorithm.
 
-\item Asymptotic Analysis
+\subsection{Asymptotic Analysis}
 
 Asymptotic Analysis is the use of the above three definitions to analyze the speed and memory-efficiency of an algorithm. If a function $f(n)$ is $O(g(n))$, then, for sufficiently large $n$ (hence ``asymptotic''), we know that $f$ is no slower than $g$. For example, if a particular algorithm runs in $O(n^2)$ time, then we know that doubling the size of the input will at most \textbf{quadruple} the runtime. Consider the following algorithm for determining primality of an integer $n$:
 
@@ -164,7 +178,7 @@ int pow(double x, int n)
 We see that this version of the function will terminate when the exponent becomes 0, which will occur after integer division by 2 has occurred $\lceil\log(n)\rceil$ times. Thus, this version of the function is $O(\log(n))$.
 
 As a rule of thumb, algorithms which are ``faster'' asymptotically are preferred. So an $O(n)$ algorithm is preferable to an $O(n^2)$ algorithm. This isn't \textit{always} true, however, as an algorithm with an $O(10^{1000}n)$ runtime, while certainly faster in the long-term than an $O(n^2)$ algorithm, is hardly preferable. In fact, the $O(10^{1000}n)$ runtime algorithm will not see such results until $n>10^{1000}$. In other words, it is important to contextualize these bounds.
-\end{itemize}
+
 
 \section{Queue Operations}
 The following queue operations:
