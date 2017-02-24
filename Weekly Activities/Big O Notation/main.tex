@@ -25,16 +25,31 @@
 We say a function $f(n)$ is $O(g(n))$, written \begin{align*}f(n) &\text{ is } O(g(n))\text{ or }\\f(n)&=O(g(n))\text{ or }\\f(n)&\in O(g(n))\end{align*} if and only if there exists a real constant $c>0$ and an integer constant $m\geq1$ such that \[f(n)\leq cg(n) \text{ for all }n\geq m\] In other words, $f(n)$ is $O(g(n))$ when it is bounded from above by $g(n)$. In particular, we use this for analyzing an algorithm to discuss its runtime and memory space. For example, the following algorithm for checking if a number is prime runs in $O(\sqrt{n})$ time:
 
 \begin{minted}{C++}
-int isPrime(int n)
+bool isPrime(int n)
 {
-	for (int i = 2; i * i < n; i++)
-	{
-		if (n % i == 0)
-		{
-			return false;
-		}
-	return true;
-	}
+  if (n == 1)
+  {
+    return false;
+  }
+  else if (n == 2)
+  {
+    return true;
+  }
+  else if (n == 3)
+  {
+    return true;
+  }
+  else
+  {
+    for (int i = 2; i * i <= n; i++)
+    {
+      if (n % i == 0)
+      {
+	return false;
+      }
+    }
+  return true;
+  }
 }
 \end{minted}
 

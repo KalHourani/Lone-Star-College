@@ -51,7 +51,7 @@
 
   \item The Cubic Function and Other Polynomials
 
-  The cubic function is any polynomial \[f(n)=an^3+bn^2+cn+d\] Though, as in the above example, we typically consider \[f(n) = n^3\] A polynomial function of degree $m$ is a function of the form \[f(n)=a_0n^m+a_1n^{m-1}+\cdots+a_{n-1}m+a_n\] Similarly, we typically consider the polynomial \[f(n)=n^m\] These functions show up in cases where there are multiple nested loops. In the case of four nested loops, for example, the function would have a running time of approximately $n^4$.
+  The cubic function is any polynomial \[f(n)=an^3+bn^2+cn+d\] Though, as in the above example, we typically consider \[f(n) = n^3\] A polynomial function of degree $m$ is a function of the form \[f(n)=a_0n^m+a_1n^{m-1}+\cdots+a_{n-1}n+a_m\] Similarly, we typically consider the polynomial \[f(n)=n^m\] These functions show up in cases where there are multiple nested loops. In the case of four nested loops, for example, the function would have a running time of approximately $n^4$.
 
   \item The Exponential Function
 
@@ -64,7 +64,7 @@
   \item $(b^m)^n=b^{mn}$
   \end{enumerate}
 
-The exponential function frequently occurs when the something is repeatedly doubled.
+The exponential function frequently shows up when something is repeatedly doubled.
 \end{itemize}
 
 \section{Asymptotes}
@@ -90,7 +90,7 @@ Finally, we say that $f$ is $\Theta(g(n))$, written \begin{align*}f(n) &\text{ i
 
 For example, the function $f(n)=n^2+4n+9$ is $\Theta(n^2)$, since \[n^2 \leq n^2+4n+9\leq14n^2\text{ for } n\geq1\]
 
-In practice, Big O notation is most frequently used, since we are often more concerned with a ``worst case'' estimation of the performance and memory space of an algorithm.
+In practice, Big $O$ notation is more frequently used than Big $\Omega$ and Big $\Theta$, since we are often more concerned with a ``worst case'' estimation of the performance and memory space of an algorithm.
 
 \item Asymptotic Analysis
 
@@ -127,7 +127,7 @@ bool isPrime(int n)
 
 We see that this algorithm will perform at most $\sqrt{n}$ operations (when $n$ is a perfect-square or prime), and is therefore $O(\sqrt{n})$. In other words, if we quadruple the input, we will require at most \textbf{double} the number of operations. However, in many cases we will not \textbf{actually} require double the number of operations. Consider the function evaluated on $n=4$. The function will perform one operation before returning false, simply testing divisibility by 2. When we evaluate the function on $16$, it similarly only takes only a single operation. In fact, this best-case scenario (when $n$ is even) shows that the algorithm is $\Omega(1)$. 
 
-Consider, instead, the following function to recursively evaluate $x^n$:
+Similarly, consider, the following function to recursively evaluate $x^n$:
 \begin{minted}{C++}
 int pow(double x, int n)
 {
@@ -142,7 +142,7 @@ int pow(double x, int n)
 }
 \end{minted}
 
-This function will perform \textbf{exactly} $n$ operations, and therefore is $\Theta(n)$ (and therefore $O(n)$). However, this function can be improved by performing what is called ``binary exponentiation''. To calculate $x^9$, we write $9=1001_b$ and observe then that\[x^9=x^8x^1\] This creates the far more efficient algorithm:
+This function will perform \textbf{exactly} $n$ operations, and therefore is $\Theta(n)$ (and therefore $O(n)$). However, this function can be improved by performing what is called ``binary exponentiation''. For example, in order to calculate $x^9$, we write $9=1001_b$ and observe then that\begin{align*}x^9&=x^{1001_b}\\&=x^{1\cdot2^3+0\cdot2^2+0\cdot2^1+1\cdot2^0}\\&=x^{1\cdot2^3}x^{0\cdot2^2}x^{0\cdot2^1}x^{1\cdot2^0}\\&=x^8x^1\end{align*} This creates the far more efficient algorithm:
 
 \begin{minted}{C++}
 int pow(double x, int n)
