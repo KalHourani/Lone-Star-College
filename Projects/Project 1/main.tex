@@ -82,11 +82,7 @@ We say a function $f(n)$ is $O(g(n))$, written \begin{align*}f(n) &\text{ is } O
 
 For example, the function $f(n)=n^2+4n+9$ is $O(n^3)$, since \[n^2+4n+9\leq 1n^3\text{ for } n\geq4\]
 
-<<<<<<< HEAD
 Similarly, we say that $f(n)$ is $\Omega(g(n))$, written \begin{align*}f(n) &\text{ is } \Omega(g(n))\text{ or }\\f(n)&=\Omega(g(n))\text{ or }\\f(n)&\in \Omega(g(n))\end{align*} if and only if there exists a real constant $c>0$ and an integer constant $m\geq1$ such that \[f(n)\geq cg(n) \text{ for all }n\geq m\] Equivalently, $f(n)$ is $\Omega(g(n))$ if and only if $g(n)$ is $O(f(n))$. 
-=======
-Similarly, we say that $f(n)$ is $\Omega(g(n))$, written \begin{align*}f(n) &\text{ is } \Omega(g(n))\text{ or }\\f(n)&=\Omega(g(n))\text{ or }\\f(n)&\in \Omega(g(n))\end{align*} if and only if there exists a real constant $c>0$ and an integer constant $m\geq1$ such that \[f(n)\geq cg(n) \text{ for all }n\geq m\] Equivalently, $f(n)=\Omega(g(n))$ if and only if $g(n)=O(f(n))$.
->>>>>>> fa263d4a9801c2393b765c97e08af9fd83c7f968
 
 For example, the function $f(n)=n^2+4n+9$ is $\Omega(n)$, since \[n^2+4n+9\geq 1n\text{ for }n\geq1\]
 
@@ -178,6 +174,6 @@ enqueue(5), enqueue(3), dequeue(), enqueue(2), enqueue(8), dequeue(), dequeue(),
 appear as follows:
 
 \begin{align*}
-\boxed{\phantom{5}}&\xrightarrow{enqueue(5)}\boxed{5}\xrightarrow{enqueue(3)}\boxed{3}\boxed{5}\xrightarrow{dequeue()}\boxed{3}\xrightarrow{enqueue(2)}\boxed{2}\boxed{3}\xrightarrow{enqueue(8)}\boxed{8}\boxed{2}\boxed{3}\xrightarrow{dequeue()}\boxed{8}\boxed{2}\\&\xrightarrow{dequeue()}\boxed{8}\xrightarrow{enqueue(9)}\boxed{9}\boxed{8}\xrightarrow{enqueue(1)}\boxed{1}\boxed{9}\boxed{8}\xrightarrow{dequeue()}\boxed{1}\boxed{9}\xrightarrow{enqueue(7)}\boxed{7}\boxed{1}\boxed{9}\\&\xrightarrow{enqueue(6)}\boxed{6}\boxed{7}\boxed{1}\boxed{9}\xrightarrow{dequeue()}\boxed{6}\boxed{7}\boxed{1}\xrightarrow{dequeue()}\boxed{6}\boxed{7}\xrightarrow{enqueue(4)}\boxed{4}\boxed{6}\boxed{7}\xrightarrow{dequeue()}\boxed{4}\boxed{6}\\&\xrightarrow{dequeue()}\boxed{4}
+\boxed{\phantom{5}}&\xrightarrow{\text{enqueue(5)}}\boxed{5}\xrightarrow{\text{enqueue(3)}}\boxed{3}\boxed{5}\xrightarrow{\text{dequeue()}}\boxed{3}\xrightarrow{\text{enqueue(2)}}\boxed{2}\boxed{3}\xrightarrow{\text{enqueue(8)}}\boxed{8}\boxed{2}\boxed{3}\\&\xrightarrow{\text{dequeue()}}\boxed{8}\boxed{2}\xrightarrow{\text{dequeue()}}\boxed{8}\xrightarrow{\text{enqueue(9)}}\boxed{9}\boxed{8}\xrightarrow{\text{enqueue(1)}}\boxed{1}\boxed{9}\boxed{8}\xrightarrow{\text{dequeue()}}\boxed{1}\boxed{9}\\&\xrightarrow{\text{enqueue(7)}}\boxed{7}\boxed{1}\boxed{9}\xrightarrow{\text{enqueue(6)}}\boxed{6}\boxed{7}\boxed{1}\boxed{9}\xrightarrow{\text{dequeue()}}\boxed{6}\boxed{7}\boxed{1}\xrightarrow{\text{dequeue()}}\boxed{6}\boxed{7}\\&\xrightarrow{\text{enqueue(4)}}\boxed{4}\boxed{6}\boxed{7}\xrightarrow{\text{dequeue()}}\boxed{4}\boxed{6}\xrightarrow{\text{dequeue()}}\boxed{4}
 \end{align*}
 \end{document}
