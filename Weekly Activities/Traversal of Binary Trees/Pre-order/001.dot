@@ -15,7 +15,7 @@ C [ label = "C", style = invis ];
 "6" -> "10";
 "10" -> "11";
 "10" -> "12";
-//"1" [style = filled, fillcolor = red];
+"1" [style = filled, fillcolor = red];
 //"2" [style = filled, fillcolor = red];
 //"3" [style = filled, fillcolor = red];
 //"4" [style = filled, fillcolor = red];
