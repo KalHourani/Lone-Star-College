@@ -28,37 +28,24 @@ There are four ways to traverse a binary tree. They are
 \section{Pre-order Traversal}
 To traverse a binary tree with a Pre-Order Traversal, begin at the root of the tree:
 \begin{enumerate}
-	\item If the current node has no children, stop.
-    \item If the node has children:
-    \begin{itemize}\item visit the \textbf{left  child} of the node. Repeat the algorithm on this subtree.
-    				\item visit the \textbf{right child} of the node. Repeat this algorithm on this subtree.
-	\end{itemize}
+	\item Check if the current node is empty. 
+	\item Visit the current node.
+	\item Traverse the left subtree, recursively calling the function on the visited nodes.
+	\item Traverse the right subtree, recursively calling the function on the visited nodes.
 \end{enumerate}
 \section{Post-order Traversal}
+To traverse a binary tree with a Post-Order Traversal, begin at the root of the tree:
+\begin{enumerate}
+	\item Check if the current node is empty. 
+	\item Traverse the left subtree, recursively calling the function on the visited nodes.
+	\item Traverse the right subtree, recursively calling the function on the visited nodes.
+	\item Visit the current node. 
+\end{enumerate}
 \section{In-order Traversal}
 \section{Euler Tour Traversal}
 
-\center
-\begin{tikzpicture}[sibling distance=5em, every node/.style = {shape=circle, draw, align=center}]
-\node {1}
-	child { node {2}
-    	child { node {4}
-        	child[missing] { node {} }
-        	child { node {7} }
-        }
-        child { node {5}
-        child { node {A}}
-        child { node {B}}
-        }
-    }
-    child { node {3}
-    	child[missing] { node {} }
-        child { node {6}
-        	child[missing] { node {} }
-            child { node {8}
-            child { node {9} }
-            child[missing] { node {} }}
-            }
-    };
-\end{tikzpicture}
+\begin{figure}[h]
+ \includegraphics[scale=0.25]{Tree.png}
+\end{figure}
+
 \end{document}
