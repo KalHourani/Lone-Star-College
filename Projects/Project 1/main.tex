@@ -5,7 +5,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
-\usepackage{minted}
+\usepackage{minted, color, xcolor}
 
 %% Sets page size and margins
 \usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
@@ -36,6 +36,7 @@
 
 % Bottom of the page
 \end{titlepage}
+\clearpage\mbox{}\thispagestyle{empty}\clearpage
 \section{Analysis Tools}
 \subsection{The Constant Function}
 A constant function is any function of the form \[f(n) = c\] where $c$ is some constant. Since any constant function $f(n) = c$ can be written as \[f(n) = c \cdot g(n)\] where $g(n) = 1$ is another constant function, we will typically focus on the constant function $f(n)=1$. The constant function frequently describes the number of steps required for basic operations, like assigning a value to a variable, adding two integers, or accessing an array index. 
@@ -108,72 +109,19 @@ In practice, Big $O$ notation is more frequently used than Big $\Omega$ and Big 
 
 \subsection{Asymptotic Analysis}
 
-Asymptotic Analysis is the use of the above three definitions to analyze the speed and memory-efficiency of an algorithm. If a function $f(n)$ is $O(g(n))$, then, for sufficiently large $n$ (hence ``asymptotic''), we know that $f$ is no slower than $g$. For example, if a particular algorithm runs in $O(n^2)$ time, then we know that doubling the size of the input will at most \textbf{quadruple} the runtime. Consider the following algorithm for determining if an integer $n$ is prime:
+Asymptotic Analysis is the use of the above three definitions to analyze the speed and memory-efficiency of an algorithm. If a function $f(n)$ is $O(g(n))$, then, for sufficiently large $n$ (hence ``asymptotic''), we know that $f$ is no slower than $g$. For example, if a particular algorithm runs in $O(n^2)$ time, then we know that doubling the size of the input will at most \textbf{quadruple} the runtime. Consider the following algorithm for determining if an integer $n>3$ is prime:
 
-\begin{minted}{C++}
-bool isPrime(int n)
-{
-    if (n == 1)
-    {
-        return false;
-    }
-    else if (n == 2)
-    {
-        return true;
-    }
-    else if (n == 3)
-    {
-        return true;
-    }
-    else
-    {
-        for (int i = 2; i * i <= n; i++)
-    {
-        if (n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-    }
-}
-\end{minted}
+\inputminted[frame=lines,bgcolor=lightgray]{C++}{isPrime.cpp}
 
 We see that this algorithm will perform at most $\sqrt{n}$ operations (when $n$ is a perfect-square or prime), and is therefore $O(\sqrt{n})$. In other words, if we quadruple the input, we will require at most \textbf{double} the number of operations. However, in many cases we will not \textbf{actually} require double the number of operations. Consider the function evaluated on $n=4$. The function will perform one operation before returning false, simply testing divisibility by 2. When we evaluate the function on $16$, it similarly only takes only a single operation. In fact, this best-case scenario (when $n$ is even) shows that the algorithm is $\Omega(1)$. 
 
 Similarly, consider, the following function to recursively evaluate $x^n$ for non-negative integers $n$:
-\begin{minted}{C++}
-int pow(double x, int n)
-{
-	if (n == 0)
-	{
-		return 1;
-	}
-	else
-	{
-		return x * pow(x, n - 1);
-	}
-}
-\end{minted}
 
-This function will perform \textbf{exactly} $n$ operations, and is therefore $\Theta(n)$ (and thus $O(n)$). However, this function can be improved by performing what is called ``binary exponentiation'' instead. We demonstrate this by evaluating $x^9$: write $9=1001_b$ and observe that\begin{align*}x^9&=x^{1001_b}\\&=x^{1\cdot2^3+0\cdot2^2+0\cdot2^1+1\cdot2^0}\\&=x^{1\cdot2^3}x^{0\cdot2^2}x^{0\cdot2^1}x^{1\cdot2^0}\\&=x^8x^1\end{align*} This creates the far more efficient algorithm:
+\inputminted[frame=lines,bgcolor=lightgray]{C++}{recursivePow.cpp}
 
-\begin{minted}{C++}
-int pow(double x, int n)
-{
-	int result = 1;
-	while (exponent > 0)
-	{
-		if (exponent % 2 == 1)
-		{
-			result *= base;
-		}
-		exponent /= 2;
-		base *= base;
-	}
-	return result;
-}
-\end{minted}
+This function will perform \textbf{exactly} $n$ operations, and is therefore $\Theta(n)$ (and thus $O(n)$). However, this function can be improved by performing what is called ``binary exponentiation'' instead. We demonstrate this by evaluating $x^9$: write $9=1001_b$ and observe that\begin{align*}x^9&=x^{1001_b}\\&=x^{1\cdot2^3+0\cdot2^2+0\cdot2^1+1\cdot2^0}\\&=x^{1\cdot2^3}x^{0\cdot2^2}x^{0\cdot2^1}x^{1\cdot2^0}\\&=x^8x^1\end{align*} This creates the far more efficient algorithm:\pagebreak
+
+\inputminted[frame=lines,bgcolor=lightgray]{C++}{binaryPow.cpp}
 
 We see that this version of the function will terminate when the exponent becomes 0, which will occur after integer division by 2 has occurred $\lceil\log(n)\rceil$ times. Thus, this version of the function is $O(\log(n))$.
 

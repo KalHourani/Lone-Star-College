@@ -6,21 +6,109 @@
 \usepackage[T1]{fontenc}
 \usepackage{listings}
 \usepackage{minted}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{filecontents}
 
 %% Sets page size and margins
 \usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
 %% Useful packages
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
-\title{Analysis of Algorithm}
+\title{Analysis of Algorithms}
 \author{Khalid Hourani}
 
 \begin{document}
 \maketitle
 
+\section{Experimental Studies}
+One way to study an algorithm's running time is by experiment: we run the algorithm on various inputs and record the time spent on execution. For example, the following implementation of binary exponentiation has the plot: 
+
+\begin{tikzpicture}
+  \begin{axis}[
+    title=Binary Exponentiation,
+    xlabel=Input,
+    ylabel style={align=center}, ylabel=Average Runtime\\(milliseconds),
+    xmin=0, xmax=1000,
+    ymin=0, ymax=2,
+    xtick={0,100, 200, 300, 400, 500, 600, 700, 800, 900},
+    legend pos={south east}]
+    \addplot [
+    domain=0:1000, 
+    samples=10000,
+    color=blue, very thick,
+]
+{log2(x)/6};
+\addlegendentry{$6\times10^{-1}\log_2(n)$}
+    \addplot[mark=square, only marks] table[x=input, y=time] {data_points.dat};
+  \end{axis}
+\end{tikzpicture}
+
+There are some notable problems with experimental analysis. For one, we can only test certain inputs. It may be the case that an algorithm appears to approach $f(n)$ for ``smaller'' values of $n$, but is actually $g(n)$ asymptotically. Moreover, runtime needs to be tested on the same configuration each time. Finally, the algorithm must be fully implemented \textit{and} it must be fully executed each time in order for experimental values to be recorded. This can be prohibitively time-consuming.
+
+\section{Primitive Operations}
+
+In order to analyze algorithms, we define a set of \textbf{primitive operations} that correspond to a set of low-level instructions that run in a fixed amount of time. For example, this may include 
+
+\begin{itemize}
+\item Assigning a value to a variable.
+\item Calling a function.
+\item Performing an arithmetic operation (e.g. addition).
+\end{itemize}
+
+Instead of trying to determine the specific execution time of an algorithm, we simply count the number of primitive operations of the algorithm. This then allows us to establish a runtime in terms of the number of primitive operations. We assume that primitive operations will run at approximately the same speed under different configurations. 
+
+In some cases, an algorithm will run faster on a specific input. To account for this, we can consider an \textbf{average-case} by defining a probability distribution on the set of possible inputs. However, this is often not possible (e.g. there is no uniform distribution on $\mathbb{N}$), so we will typically focus on the \textbf{worst case} input. This is generally much simpler than the average case, and has the requirement that in order for an algorithm to perform ``well,'' it must perform so on \textbf{every} input. 
+
+\section{Using Big O Notation}
+
+We say a function $f(n)$ is $O(g(n))$, written \begin{align*}f(n) &\text{ is } O(g(n))\text{ or }\\f(n)&=O(g(n))\text{ or }\\f(n)&\in O(g(n))\end{align*} if and only if there exists a real constant $c>0$ and an integer constant $m\geq1$ such that \[f(n)\leq cg(n) \text{ for all }n\geq m\]
+
+For example, the function $f(n)=n^2+4n+9$ is $O(n^3)$, since \[n^2+4n+9\leq 1n^3\text{ for } n\geq4\]
+
+Informally, Big O notation can be thought of as describing an upper bound on the performance or memory space of an algorithm. For example, if an algorithm runs in $O(n^2)$ time, then doubling the input will \textbf{at most} quadruple the run time. This does not mean that it necessarily will, however. In this sense, it is best to think of Big O notation as a limit on the \textbf{worst-case} performance of an algorithm. 
+
+Consider, the following function to recursively evaluate $x^n$ for non-negative integers $n$:
+\begin{minted}{C++}
+int pow(double x, int n)
+{
+	if (n == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return x * pow(x, n - 1);
+	}
+}
+\end{minted}
+
+This function will perform \textbf{exactly} $n$ operations, and is therefore $O(n)$. However, this function can be improved by performing what is called ``binary exponentiation'' instead. We demonstrate this by evaluating $x^9$: write $9=1001_b$ and observe that\begin{align*}x^9&=x^{1001_b}\\&=x^{1\cdot2^3+0\cdot2^2+0\cdot2^1+1\cdot2^0}\\&=x^{1\cdot2^3}x^{0\cdot2^2}x^{0\cdot2^1}x^{1\cdot2^0}\\&=x^8x^1\end{align*} This creates the far more efficient algorithm:
+
+\begin{minted}{C++}
+int pow(double x, int n)
+{
+	int result = 1;
+	while (exponent > 0)
+	{
+		if (exponent % 2 == 1)
+		{
+			result *= base;
+		}
+		exponent /= 2;
+		base *= base;
+	}
+	return result;
+}
+\end{minted}
+
+We see that this version of the function will terminate when the exponent becomes 0, which will occur after integer division by 2 has occurred $\lceil\log(n)\rceil$ times. Thus, this version of the function is $O(\log(n))$.
+
+As a rule of thumb, algorithms which are ``faster'' asymptotically are preferred. So an $O(n)$ algorithm is preferable to an $O(n^2)$ algorithm. This isn't \textit{always} true, however, as an algorithm with an $O(10^{1000}n)$ runtime, while certainly faster \textbf{asymptotically} than an $O(n^2)$ algorithm, is hardly preferable. In fact, the $O(10^{1000}n)$ runtime algorithm will not see such results until $n>10^{1000}$. In other words, it is important to contextualize this bound.
 
 \end{document}
