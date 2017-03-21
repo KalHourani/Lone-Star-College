@@ -1,0 +1,18 @@
+digraph G {
+graph [ordering="out"];
+  a [shape="box", label=""] ;
+  b [shape="box", label=""] ;
+  c [shape="box", label=""] ;
+  d [shape="box", label=""] ;
+  e [shape="box", label=""] ;
+  f [shape="box", label=""] ;
+  blank [style="invis", label=""]
+  g [shape="box", label=""] ;
+
+a -> b;
+a -> c;
+b -> d;
+b -> e;
+c -> f;
+c -> g;
+}
