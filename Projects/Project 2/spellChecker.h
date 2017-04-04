@@ -18,6 +18,7 @@ private:
 	string adjacentSwap(string, int);
 	string del(string, int);
 	string replace(string, char, int);
+	string insert(string, char, int);
 	char alphabet[26] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 												'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
 												'w', 'x', 'y', 'z'};

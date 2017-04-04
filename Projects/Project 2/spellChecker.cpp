@@ -32,6 +32,13 @@ string spellChecker::replace(string s, char letter, int i)
   return new_s;
 }
 
+string spellChecker::insert(string s, char letter, int i)
+{
+	string new_s = s;
+	new_s.insert(i, string(1,letter));
+	return new_s;
+}
+
 vector<string> spellChecker::spellCheck(string s)
 {
   vector<string> suggestions;
@@ -70,6 +77,17 @@ vector<string> spellChecker::spellCheck(string s)
         }
       }
     }
-    return suggestions;
   }
+  for (int i = 0; i < n; i++)
+  {
+	  for (int j = 0; j < 26; j++)
+	  {
+		  string new_s = insert(s, alphabet[j], i);
+		  if (words.find(new_s) != words.end())
+		  {
+			  suggestions.push_back(new_s);
+		  }
+	  }
+  }
+  return suggestions;
 }

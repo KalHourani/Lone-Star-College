@@ -20,12 +20,21 @@ int main()
 	cout << "Input a word.";
 	getline(cin, word);
 	vector<string> k = S.spellCheck(word);
-	vector<string>::iterator it;
-	for (it = k.begin(); it != k.end(); ++it)
+	if (k.size() == 1)
 	{
-		cout << *it << endl;
+		cout << "Your word is spelled correctly." << endl;
+		enter_prompt();
 	}
-	enter_prompt();
+	else
+	{
+		cout << "Your word appears to be misspelled. Did you mean:" << endl;
+		vector<string>::iterator it;
+		for (it = k.begin(); it != k.end(); ++it)
+		{
+			cout << *it << endl;
+		}
+		enter_prompt();
+	}
     return 0;
 }
 
