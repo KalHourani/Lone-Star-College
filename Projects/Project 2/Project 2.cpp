@@ -19,6 +19,12 @@ int main()
 	string word;
 	cout << "Input a word.";
 	getline(cin, word);
+	vector<string> k = S.spellCheck(word);
+	vector<string>::iterator it;
+	for (it = k.begin(); it != k.end(); ++it)
+	{
+		cout << *it << endl;
+	}
 	enter_prompt();
     return 0;
 }
