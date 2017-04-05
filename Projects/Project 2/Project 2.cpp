@@ -55,7 +55,8 @@ void clear_input() //reset cin flags and clear standard input
 string tolower(string s)
 {
 	string new_s = s;
-	for (int i = 0; i < s.size(); i++)
+	int length = s.size();
+	for (int i = 0; i < length; i++)
 	{
 		new_s[i] = tolower(new_s[i]);
 	}
