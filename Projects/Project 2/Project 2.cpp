@@ -75,7 +75,7 @@ void demonstration()
 	{
 		cout << "Your word appears to be misspelled. No suggested spelling is available.";
 	}
-	else if (k.size() == 1)
+	else if ((k.size() == 1) && (k[0] == word))
 	{
 		cout << "Your word is spelled correctly." << endl;
 	}
