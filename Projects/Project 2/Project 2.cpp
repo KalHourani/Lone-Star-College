@@ -12,11 +12,12 @@ using namespace std;
 //function prototypes
 void enter_prompt();
 void clear_input();
-void demonstration();
+void demonstration(spellChecker);
 string tolower(string);
 
 int main()
 {
+	spellChecker S = spellChecker();
 	int input = 1;
 	while (input == 1)
 	{
@@ -27,7 +28,7 @@ int main()
 		if (input == 1)
 		{
 			clear_input();
-			demonstration();
+			demonstration(S);
 			clear_input();
 		}
 	}
@@ -63,9 +64,8 @@ string tolower(string s)
 	return new_s;
 }
 
-void demonstration()
+void demonstration(spellChecker S)
 {
-	spellChecker S = spellChecker();
 	string word;
 	cout << "Input a word." << endl;
 	getline(cin, word);
