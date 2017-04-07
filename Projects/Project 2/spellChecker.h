@@ -9,7 +9,7 @@
 
 using namespace std;
 
-// Circle class declaration.
+// spellChecker class declaration.
 
 class spellChecker
 {
@@ -24,6 +24,7 @@ private:
 												'w', 'x', 'y', 'z'};
 public:
 	spellChecker();
+	spellChecker(vector<string>);
 	vector<string> spellCheck(string);
 };
 
