@@ -89,7 +89,7 @@ vector<string> spellChecker::spellCheck(string s)
         {
                 for (int j = 0; j < 26; j++)
                 {
-                        string new_s = insert(s, alphabet[j], i); //check if inserrting single letter yields correctly spelled word
+                        string new_s = insert(s, alphabet[j], i); //check if inserting single letter yields correctly spelled word
                         if (words.find(new_s) != words.end())
                         {
                                 suggestions.push_back(new_s);
