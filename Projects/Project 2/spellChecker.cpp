@@ -59,7 +59,7 @@ vector<string> spellChecker::spellCheck(string s)
         {
                 for (int i = 0; i < n - 1; i++)
                 {
-                        string new_s = adjacentSwap(s, i); //check if swapping letters yields correctly spelled word
+                        string new_s = adjacentSwap(s, i); //check if swapping adjacent letters yields correctly spelled word
                         if (words.find(new_s) != words.end())
                         {
                                 suggestions.push_back(new_s);
