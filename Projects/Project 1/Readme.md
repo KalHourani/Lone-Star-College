@@ -12,14 +12,14 @@ Describe in your own words and in detail with an example what the following 7 fu
 * The Cubic Function and Other Polynomials
 * The Exponential Function
 
-##Part II: (75 Points)
+## Part II: (75 Points)
 
 Describe in your own words and in detail with example what are the following two:
 
 * Asymptotic Notation
 * Asymptotic Analysis
 
-##Part III: (25 Points)
+## Part III: (25 Points)
 
 What would be the output of the following sequence of queue operations:
 
