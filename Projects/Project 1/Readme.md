@@ -1,6 +1,6 @@
-#Project 1 (200 Points)
+# Project 1 (200 Points)
 
-##Part I: (100 Points)
+## Part I: (100 Points)
 
 Describe in your own words and in detail with an example what the following 7 functions are in Analysis Tools:
 
