@@ -12,7 +12,7 @@ using namespace std;
 //function prototypes
 void enter_prompt();
 void clear_input();
-int inputInteger(min = -100, max = 100);
+int inputInteger(int min = -100, int max = 100);
 
 int main()
 {
@@ -33,23 +33,12 @@ void clear_input() //reset cin flags and clear standard input
 								cin.ignore(numeric_limits<streamsize>::max(), '\n'); //clear cin
 }
 
-string tolower(string s)
-{
-								string new_s = s;
-								int length = s.size();
-								for (int i = 0; i < length; i++)
-								{
-																new_s[i] = tolower(new_s[i]);
-								}
-								return new_s;
-}
-
 int inputInteger()
 {
 								int input;
 								cout << "Input an integer." << endl;
 								cin >> input;
-								while ((!(cin >> input)) || (input < min) || (input > max))
+								while ((!(cin >> input)) || (input < min) || (input > max)) //input validation
 								{
 									clear_input();
 									cout << "Invalid input. Please input an integer between " << min << " and " << max << "." << endl;
