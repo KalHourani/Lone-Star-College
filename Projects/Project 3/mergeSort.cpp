@@ -1,58 +1,59 @@
 #include <algorithm>
 #include "mergeSort.h"
 
-vector<int> merge(vector<int> l1, vector<int> l2)
+int* merge(int* l1, int* l2, int nl, int nr)
 {
-	vector<int> result;
-	vector<int> left = l1;
-	vector<int> right = l2;
-	while (!(left.empty()) && !(right.empty()))
+	int* result = new int[nl + nr];
+	int* left = l1;
+	int* right = l2;
+	int i = 0, j = 0;
+	while ((i < nl) && (j < nr))
 	{
-		if (left[0] <= right[0])
+		if (left[i] <= right[j])
 		{
-			result.push_back(left[0]);
-			left.erase(left.begin());
+			result[i + j] = left[i];
+			i++;
 		}
 		else
 		{
-			result.push_back(right[0]);
-			right.erase(right.begin());
+			result[i + j] = right[j];
+			j++;
 		}
 	}
-	while (!(left.empty()))
+	while (i < nl)
 	{
-		result.push_back(left[0]);
-		left.erase(left.begin());
+		result[i + j] = left[i];
+		i++;
 	}
-	while (!(right.empty()))
+	while (j < nr)
 	{
-		result.push_back(right[0]);
-		right.erase(right.begin());
+		result[i + j] = right[j];
+		j++;
 	}
 	return result;
 }
 
-vector<int> merge_sort(vector<int> list)
+int* merge_sort(int* list, int n)
 {
-	if (list.size() <= 1)
+	if (n <= 1)
 	{
 		return list;
 	}
 	else
 	{
-		vector<int> left;
-		vector<int> right;
-		for (int i = 0; i < (list.size() / 2); i++)
+		int* left = new int[n/2];
+		int* right = new int[n - n/2];
+		for (int i = 0; i < (n / 2); i++)
 		{
-			left.push_back(list[i]);
+			left[i] = list[i];
 		}
-		for (int i = list.size() / 2; i < list.size(); i++)
+		for (int i = n / 2; i < n; i++)
 		{
-			right.push_back(list[i]);
+			right[i - n/2] = list[i];
 		}
-		left = merge_sort(left);
-		right = merge_sort(right);
+		left = merge_sort(left, n/2);
+		right = merge_sort(right, n - n/2);
 
-		return merge(left, right);
+		return merge(left, right, n/2, n - n/2);
 	}
 }

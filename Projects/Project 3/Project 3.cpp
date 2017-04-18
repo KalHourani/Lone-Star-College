@@ -7,6 +7,7 @@ potential spelling corrections
 #include <limits> // Used for enter prompts and input validation
 #include "basicSorts.h"
 #include "mergeSort.h"
+#include "quickSort.h"
 
 using namespace std;
 
@@ -14,12 +15,12 @@ using namespace std;
 void enter_prompt();
 void clear_input();
 int inputInteger(int min = -100, int max = 100);
-vector<int> inputIntegers(int size = 20, int min = -100, int max = 100);
+int* inputIntegers(int size = 20, int min = -100, int max = 100);
 
 int main()
 {
-	vector<int> integers = inputIntegers();
-	vector<int> sorted_list = merge_sort(integers);
+	int* integers = inputIntegers();
+	int* sorted_list = merge_sort(integers, 20);
 	cout << "Your sorted list is:";
 	cout << "[";
 	for (int i = 0; i < 19; i++)
@@ -35,7 +36,6 @@ void enter_prompt() //cross-platform method to prompt user to press enter
 {
 	string _; //string to hold input
 	cout << "Press enter to terminate the program.";
-	clear_input();
 	getline(cin, _); //getline terminates when user presses enter
 }
 
@@ -54,16 +54,16 @@ int inputInteger(int min, int max)
 		clear_input();
 		cout << "Invalid input. Please input an integer between " << min << " and " << max << "." << endl;
 	}
-	clear_input;
+	clear_input();
 	return input;
 }
 
-vector<int> inputIntegers(int size, int min, int max)
+int* inputIntegers(int size, int min, int max)
 {
-	vector<int> integers;
+	int* integers = new int[size];
 	for (int i = 0; i < size; i++)
 	{
-		integers.push_back(inputInteger(min, max));
+		integers[i] = inputInteger(min, max);
 	}
 	return integers;
 }

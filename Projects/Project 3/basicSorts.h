@@ -1,12 +1,8 @@
 #ifndef basicSorts_H
 #define basicSorts_H
 
-#include <vector>;
-
-using namespace std;
-
-vector<int> bubble_sort(vector<int>);
-vector<int> selection_sort(vector<int>);
-vector<int> insertion_sort(vector<int>);
+int* bubble_sort(int*, int);
+int* selection_sort(int*, int);
+int* insertion_sort(int*, int);
 
 #endif
