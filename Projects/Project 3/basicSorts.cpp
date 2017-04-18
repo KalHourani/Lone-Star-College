@@ -1,9 +1,11 @@
 #include <algorithm>
 #include "basicSorts.h"
 
-vector<int> bubble_sort(vector<int> list, int n)
+using namespace std;
+
+int* bubble_sort(int* list, int n)
 {
-	vector<int> sorted_list = list;
+	int* sorted_list = list;
 	bool flag = true; //flag to check if swap has been made
 	int i = 0; //counter to keep track of number of passes through the array
 	while (flag)
@@ -22,9 +24,9 @@ vector<int> bubble_sort(vector<int> list, int n)
 	return sorted_list;
 }
 
-vector<int> selection_sort(vector<int> list, int n)
+int* selection_sort(int* list, int n)
 {
-	vector<int> sorted_list = list;
+	int* sorted_list = list;
 	int min_index;
 	for (int i = 0; i < n - 1; i++)
 	{
@@ -44,9 +46,9 @@ vector<int> selection_sort(vector<int> list, int n)
 	return sorted_list;
 }
 
-vector<int> insertion_sort(vector<int> list, int n)
+int* insertion_sort(int* list, int n)
 {
-	vector<int> sorted_list = list;
+	int* sorted_list = list;
 	for (int i = 0; i < n - 1; i++)
 	{
 		int j = i + 1;

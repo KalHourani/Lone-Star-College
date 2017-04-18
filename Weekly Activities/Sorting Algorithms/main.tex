@@ -16,6 +16,7 @@
 \usepackage{listings}
 \usepackage{minted}
 \usepackage{tikz-qtree}
+\usepackage{colortbl}
 
 %% Title
 \title{Sorting Algorithms}
@@ -35,6 +36,14 @@ On the $i^{\text{th}}$ iteration (beginning with 0), we place $A_{i+1}$ in the c
 In the \textbf{best case}, the array is already sorted and we only need to pass through the array once, in which case the sort is $O(n)$. 
 
  \item Merge Sort
+ 
+ The number of recursive calls to the merge sort will be $\lceil\log(n)\rceil$. At each step, the number of operations in merging the sublists will be proportional to the number of elements. Thus, a merge sort is $O(n\log(n))$.
+ 
+ \item Quick Sort
+ 
+For each level the number of operations will be $O(n)$. In the \textbf{worst case}, the pivot will be the least or greatest value of each array, and thus there will be $n$ levels, giving an $O(n^2)$ performance. In the \textbf{average} and \textbf{best case}, the number of levels will be $O(\log(n))$, and the performance is therefore $O(n\log(n))$. 
 \end{enumerate}
+
+In summary: \begin{center}\begin{tabular}{|c|c|c|c|}\hline\textbf{Name} & \textbf{Best} & \textbf{Average} & \textbf{Worst}\\\hline Selection Sort & \cellcolor{red!50}$O(n^2)$ & \cellcolor{red!50}$O(n^2)$ & \cellcolor{red!50}$O(n^2)$\\\hline Insertion Sort & \cellcolor{red!25}$O(n)$ & \cellcolor{red!50}$O(n^2)$ & \cellcolor{red!50}$O(n^2)$\\\hline Merge Sort & \cellcolor{green!50}$O(n\log{n})$ & \cellcolor{green!50}$O(n\log{n})$ & \cellcolor{green!50}$O(n\log{n})$\\\hline Quick Sort & \cellcolor{green!50}$O(n\log{n})$ & \cellcolor{green!50}$O(n\log{n})$ & \cellcolor{red!50}$O(n^2)$\\\hline\end{tabular}\end{center}
 
 \end{document}
