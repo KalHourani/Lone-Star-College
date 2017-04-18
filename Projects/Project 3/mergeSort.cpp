@@ -1,11 +1,11 @@
 #include <algorithm>
 #include "mergeSort.h"
 
-vector<int> merge(vector<int> l1, vector<int> l2)
+vector<int> merge(vector<int> left, vector<int> right)
 {
 	vector<int> result;
-	vector<int> left = l1;
-	vector<int> right = l2;
+	int m = left.size();
+	int n = right.size();
 	while (!(left.empty()) && !(right.empty()))
 	{
 		if (left[0] <= right[0])

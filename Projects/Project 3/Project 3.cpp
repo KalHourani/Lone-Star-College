@@ -5,8 +5,7 @@ potential spelling corrections
 #include <iostream>
 #include <string>
 #include <limits> // Used for enter prompts and input validation
-#include "basicSorts.h"
-#include "mergeSort.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -19,7 +18,7 @@ vector<int> inputIntegers(int size = 20, int min = -100, int max = 100);
 int main()
 {
 	vector<int> integers = inputIntegers();
-	vector<int> sorted_list = merge_sort(integers);
+	vector<int> sorted_list = sort(integers);
 	cout << "Your sorted list is:";
 	cout << "[";
 	for (int i = 0; i < 19; i++)
