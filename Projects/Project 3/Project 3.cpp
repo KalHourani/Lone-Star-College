@@ -5,13 +5,11 @@ potential spelling corrections
 #include <iostream>
 #include <string>
 #include <limits> // Used for enter prompts and input validation
-<<<<<<< HEAD
 #include <algorithm>
-=======
+
 #include "basicSorts.h"
 #include "mergeSort.h"
 #include "quickSort.h"
->>>>>>> 802e435e395f23755752d2412186cc4a1cbcc62e
 
 using namespace std;
 
@@ -23,13 +21,11 @@ int* inputIntegers(int size = 20, int min = -100, int max = 100);
 
 int main()
 {
-<<<<<<< HEAD
-	vector<int> integers = inputIntegers();
-	vector<int> sorted_list = sort(integers);
-=======
+
+
 	int* integers = inputIntegers();
-	int* sorted_list = merge_sort(integers, 20);
->>>>>>> 802e435e395f23755752d2412186cc4a1cbcc62e
+	int* sorted_list = integers;
+	std::sort(sorted_list, sorted_list + 20);
 	cout << "Your sorted list is:";
 	cout << "[";
 	for (int i = 0; i < 19; i++)

@@ -1,14 +1,6 @@
 #include <algorithm>
 #include "mergeSort.h"
 
-<<<<<<< HEAD
-vector<int> merge(vector<int> left, vector<int> right)
-{
-	vector<int> result;
-	int m = left.size();
-	int n = right.size();
-	while (!(left.empty()) && !(right.empty()))
-=======
 int* merge(int* l1, int* l2, int nl, int nr)
 {
 	int* result = new int[nl + nr];
@@ -16,7 +8,6 @@ int* merge(int* l1, int* l2, int nl, int nr)
 	int* right = l2;
 	int i = 0, j = 0;
 	while ((i < nl) && (j < nr))
->>>>>>> 802e435e395f23755752d2412186cc4a1cbcc62e
 	{
 		if (left[i] <= right[j])
 		{
