@@ -7,10 +7,6 @@ potential spelling corrections
 #include <limits> // Used for enter prompts and input validation
 #include <algorithm>
 
-#include "basicSorts.h"
-#include "mergeSort.h"
-#include "quickSort.h"
-
 using namespace std;
 
 //function prototypes
@@ -53,11 +49,12 @@ void clear_input() //reset cin flags and clear standard input
 int inputInteger(int min, int max)
 {
 	int input;
-	cout << "Input an integer." << endl;
+	cout << "Input an integer: ";
 	while (((cin >> input).fail()) || (input < min) || (input > max)) //input validation
 	{
 		clear_input();
-		cout << "Invalid input. Please input an integer between " << min << " and " << max << "." << endl;
+		cout << endl << "Invalid input. Input must be an integer between " << min << " and " << max << "." << endl;
+		cout << "Input an integer: ";
 	}
 	clear_input();
 	return input;
