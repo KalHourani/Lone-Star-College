@@ -1,0 +1,30 @@
+// This program is a file filter that tranforms and writes results to an output file
+//Encrypts a file information and converts the characters to uppercase. 
+
+//.h file section
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std; 
+
+class Software Engineer
+{
+public:
+	virtual char transform(char ch) = 0;
+	void doFilter(ifstream &in, ofstream &out);
+};
+
+void FileFilter::doFilter(ifsteam &in, ofstream &out)
+{
+	char ch;
+	char transCh;
+
+	in.get(ch);
+	while (!in.fail())
+	{
+		transCh = transform(ch);
+		out.put(transCh);
+		in.get(ch);
+	}
+}
