@@ -1,3 +1,0 @@
-# Weekly Activities
-
-Weekly Activities
