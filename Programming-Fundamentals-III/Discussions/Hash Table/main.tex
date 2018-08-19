@@ -1,0 +1,31 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{minted}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\title{Hash Table}
+\author{Khalid Hourani}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item We see that the worst-case search-time of such a hash occurs when the $n$ integer keys are congruent mod $m$. In this case, all $n$ keys collide and have the same index. Thus, a search through these elements is equivalent to a search through a linked list, which has $O(n)$ worst-case performance. 
+
+For example, take $m=7$, $n=10$, with the following keys: \[\left\{52,-32,-53,45,-4,3,-67,-11,59,10\right\}\] All of these keys have a hash-value of 3, since they are all congruent to 3 mod 7. Then our hash-table is: \begin{center}\begin{tabular}{|c|c c c c c c c c c c|}\hline Hash&\multicolumn{10}{c|}{Key}\\\hline0&&&&&&&&&&\\\hline1&&&&&&&&&&\\\hline2&&&&&&&&&&\\\hline3&52&-32&-53&45&-4&3&-67&-11&59&10\\\hline4&&&&&&&&&&\\\hline5&&&&&&&&&&\\\hline6&&&&&&&&&&\\\hline\end{tabular}\end{center} And, in the worst-case scenario of searching for an element not in the list with hash-value 3, e.g. an element with a key of $-46$, we must search through the entire linked list \[52\to-32\to-53\to45\to-4\to3\to-67\to-11\to59\to10\] to see that the element is not in our list.
+
+\item For time-critical applications, this hash is not ideal, since the worst-case performance time is $O(n)$. Instead, something with a faster worst-case performance is preferable. 
+\end{enumerate}
+\end{document}

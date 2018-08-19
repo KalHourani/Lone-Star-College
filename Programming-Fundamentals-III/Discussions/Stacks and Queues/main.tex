@@ -1,0 +1,35 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{minted}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Stacks and Queues}
+\author{Khalid Hourani}
+
+\begin{document}
+\maketitle
+
+A \textbf{Stack} is an abstract data type that satisfies \textbf{Last-In First-Out} or \textbf{LIFO}. This means that the \textit{last item} placed in the stack is the first one removed. A simple example that helps one remember this is a stack of papers: the most recent paper placed on the stack is the next one that will be removed. 
+
+Conversely, a \textbf{Queue} satisfies \textbf{First-In First-Out}. This means that the first \textit{first item} placed in a queue is the first one removed. A simple example is a line of people at a venue: the person at the front of the line is the next person to get in to the venue. 
+
+A stack has two operations: \textbf{push}, which adds an element to the top of the stack, and \textbf{pop}, which removes the element at the top of the stack.
+
+A queue similarly has two operations: \textbf{enqueue}, which adds an element to the end of the queue, and \textbf{dequeue} which removes the element at the front of the queue.
+
+The primary difference between the two is the order in which elements are removed. A stack satisfies LIFO, whereas a queue satisfies FIFO.
+
+\end{document}
